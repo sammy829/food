@@ -10,14 +10,34 @@
 body, html {height: 100%}
 body,h1,h2,h3,h4,h5,h6 {font-family: Helvetica}
 .menu {display: none}
+
+/* Updated background with bright colors */
+body {
+  background: linear-gradient(to right, #ff9a9e, #fad0c4, #ffdde1, #ff6f61);
+}
+
+/* Updated main header image */
 .bgimg {
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url("https://i.pinimg.com/originals/3e/e9/be/3ee9bef9dddea6852057292323bb95a0.jpg");
+  background-image: url("image.png"); /* Replacing with new uploaded image */
   min-height: 90%;
-  filter: brightness(80%) contrast(110%);
 }
-.w3-black {background: linear-gradient(to right, #000000, #434343);}
+
+/* Bright color scheme */
+.w3-black {
+  background-color: #ff6f61 !important; /* Bright red-orange navbar */
+}
+
+.w3-container {
+  background-color: #ffeead !important; /* Soft yellow sections */
+}
+
+.w3-button {
+  background-color: #ff4081 !important; /* Bright pink buttons */
+  color: white !important;
+}
+
 </style>
 </head>
 <body>
@@ -44,11 +64,67 @@ body,h1,h2,h3,h4,h5,h6 {font-family: Helvetica}
   </div>
 </header>
 
+<!-- Menu Container -->
+<div class="w3-container w3-black w3-padding-64 w3-xxlarge" id="menu">
+  <div class="w3-content">
+    <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">The Menu</h1>
+    <div class="w3-row w3-center w3-border w3-border-dark-grey">
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Main Menu');" id="myLink">
+        <div class="w3-col s4 tablink w3-padding-large w3-hover-red">Main Menu</div>
+      </a>
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Side Menu');">
+        <div class="w3-col s4 tablink w3-padding-large w3-hover-red">Side Menu</div>
+      </a>
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Beverages');">
+        <div class="w3-col s4 tablink w3-padding-large w3-hover-red">Beverages</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- About Container -->
+<div class="w3-container w3-padding-64 w3-red w3-xlarge" id="about">
+  <div class="w3-content">
+    <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">About</h1>
+    <p>The restaurant was built to serve people of different backgrounds with flavors from around the world.</p>
+  </div>
+</div>
+
+<!-- Contact -->
+<div class="w3-container w3-padding-64 w3-black w3-xlarge" id="contact">
+  <div class="w3-content">
+    <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">Contact</h1>
+    <p>Find us at 400 23rd Ave, Seattle, WA 98122, or call us at 123-456-7890.</p>
+    <form action="/action_page.php" target="_blank">
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="number" placeholder="How many people" required name="People"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="datetime-local" placeholder="Date and time" required name="date"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message / Special requirements" required name="Message"></p>
+      <p><button class="w3-button w3-light-grey w3-block" type="submit">SEND MESSAGE</button></p>
+    </form>
+  </div>
+</div>
+
 <script>
+// Tabbed Menu
+function openMenu(evt, menuName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("menu");
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+     tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+  }
+  document.getElementById(menuName).style.display = "block";
+  evt.currentTarget.firstElementChild.className += " w3-red";
+}
 document.getElementById("myLink").click();
 </script>
 
 </body>
 </html>
+
 
 
